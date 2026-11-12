@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090812">
+  <meta name="description" content="FlixAnime - Khám phá anime Vietsub yêu thích.">
+  <title>FlixAnime — Anime Vietsub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="FlixAnime trang chủ"><span class="brand-symbol">F<span>✦</span></span><span class="brand-name">Flix<span>Anime</span></span></a>
+      <div class="top-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Mở tìm kiếm"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+        <button class="avatar-btn" id="profileQuick" aria-label="Cá nhân">D</button>
+      </div>
+    </header>
+
+    <form id="searchForm" class="searchbar hidden">
+      <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+      <input id="searchInput" type="search" placeholder="Tìm tên anime, bộ phim..." autocomplete="off">
+      <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <main>
+      <section id="homeView">
+        <section class="hero">
+          <div class="hero-bg-grid"></div><div class="hero-glow"></div>
+          <div class="hero-copy">
+            <div class="hero-kicker"><i></i> THẾ GIỚI ANIME VIETSUB</div>
+            <h1>Chạm vào thế giới<br><span>Anime của bạn.</span></h1>
+            <p>Khám phá những câu chuyện tuyệt vời, tìm bộ anime yêu thích và tiếp tục hành trình của bạn.</p>
+            <div class="hero-actions"><button id="heroSearch" class="primary-btn">Khám phá ngay <b>↗</b></button><span class="hero-caption">Một thế giới · Vô vàn câu chuyện</span></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-ring ring-a"></div><div class="hero-ring ring-b"></div>
+            <div class="hero-orb"><span>アニメ</span></div>
+            <div class="floating-card card-top"><b>01</b><span>ANIME<br>UNIVERSE</span></div>
+            <div class="floating-card card-bottom"><span class="live-dot"></span> YOUR NEXT STORY</div>
+            <div class="hero-spark spark-a">✦</div><div class="hero-spark spark-b">✧</div>
+          </div>
+          <div class="hero-pagination"><span class="selected"></span><span></span><span></span></div>
+        </section>
+
+        <section class="welcome-strip">
+          <div class="welcome-icon">✦</div><div><b>Chào mừng đến với FlixAnime</b><p>Không gian dành riêng cho những người yêu anime.</p></div>
+          <span class="welcome-arrow">↗</span>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading"><div><span class="section-overline">BẮT ĐẦU HÀNH TRÌNH</span><h2>Khám phá anime</h2></div><span class="heading-mark">01 / 03</span></div>
+          <button class="search-feature" id="searchPrompt"><span class="search-feature-icon"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span><span class="search-feature-copy"><b>Bạn đang tìm bộ anime nào?</b><small>Nhập tên phim để tìm kiếm trên AnimeVietsub</small></span><span class="search-feature-arrow">→</span></button>
+        </section>
+
+        <section class="content-section source-section">
+          <div class="section-heading"><div><span class="section-overline">NGUỒN NỘI DUNG</span><h2>AnimeVietsub</h2></div><span class="source-pill"><i></i> SOURCE</span></div>
+          <div class="source-panel"><div class="source-logo">A<span>V</span></div><div class="source-copy"><b>Khám phá kho anime</b><p>Tìm kiếm phim, xem thông tin chi tiết và danh sách tập từ nguồn AnimeVietsub.</p></div><span class="source-arrow">✦</span></div>
+          <p class="footnote">Nội dung và khả năng phát phụ thuộc vào website nguồn, máy chủ và quyền truy cập tại thời điểm sử dụng.</p>
+        </section>
+      </section>
+
+      <section id="resultsView" class="hidden page-view">
+        <div class="page-title-row"><div><span class="section-overline">THƯ VIỆN FLIXANIME</span><h1 id="resultsTitle">Kết quả tìm kiếm</h1></div><button class="text-btn" id="backHome">Trang chủ ↗</button></div>
+        <div id="results" class="poster-grid"></div><div id="resultStatus" class="status"></div>
+      </section>
+
+      <section id="detailView" class="hidden page-view">
+        <button class="back-btn" id="backResults">← Quay lại</button><div id="detailContent"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Điều hướng chính">
+      <button class="nav-item active" data-tab="home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path></svg></span><small>Trang chủ</small></button>
+      <button class="nav-item" data-tab="search"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></span><small>Tìm kiếm</small></button>
+      <button class="nav-item" data-tab="saved"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.4-8.8 11-8.8 11s-8.8-5.6-8.8-11A4.8 4.8 0 0 1 12 6.4a4.8 4.8 0 0 1 8.8 2.4Z"></path></svg></span><small>Yêu thích</small></button>
+      <button class="nav-item" data-tab="profile"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M4.5 21a7.5 7.5 0 0 1 15 0"></path></svg></span><small>Cá nhân</small></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./js/config.js"></script>
+  <script type="module" src="./js/app.js"></script>
+  <script>
+    document.getElementById('searchPrompt')?.addEventListener('click',()=>{document.getElementById('searchForm').classList.remove('hidden');document.getElementById('searchInput').focus()});
+    document.getElementById('profileQuick')?.addEventListener('click',()=>document.querySelector('[data-tab="profile"]')?.click());
+  </script>
+</body>
+</html>
